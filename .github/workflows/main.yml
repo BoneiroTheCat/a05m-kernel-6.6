@@ -13,8 +13,16 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+      - name: Install Toolchain
+        run: |
+          pip install gdown
+          cd kernel
+          gdown "https://drive.google.com/file/d/1vsQfRgdNHlD0md9tF7j5fpkL_17whzbH/view?usp=sharing" -O toolchain.tar.gz
+          tar -xf toolchain.tar.gz
+          unlink toolchain.tar.gz
+          cd ..
       - name: Build Kernel
-        run: ls && bash build_kernel.sh
+        run: bash build_kernel.sh
       - name: Upload File to Release
         uses: ncipollo/release-action@v1
         with:
