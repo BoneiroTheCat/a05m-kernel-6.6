@@ -18,7 +18,7 @@ jobs:
           pip install gdown
           cd kernel
           gdown "https://drive.google.com/file/d/1vsQfRgdNHlD0md9tF7j5fpkL_17whzbH/view?usp=sharing" -O toolchain.tar.gz
-          tar -xf toolchain.tar.gz
+          tar -xvf toolchain.tar.gz
           unlink toolchain.tar.gz
           cd ..
       - name: Build Kernel
